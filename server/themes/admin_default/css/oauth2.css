@@ -1,0 +1,15 @@
+﻿.fa-required{
+	display: block;
+}
+.fa-required em{
+	font-size: 75%;
+}
+.ui-datepicker{
+	z-index: 99!important;
+}
+.employ-title{
+	margin: 0 0 5px 0;
+}
+.text-strong{
+	font-weight: 700;
+}

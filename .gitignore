@@ -89,3 +89,6 @@
 !/server/themes/default/modules
 /server/themes/default/modules/*
 !/server/themes/default/modules/oauth2
+!/server/themes/default/css
+/server/themes/default/css/*
+!/server/themes/default/css/oauth2.css

@@ -31,7 +31,7 @@ if( ! $server->validateAuthorizeRequest( $request, $response ) )
 		$contents = nv_info_theme( oauth2_getlang( $parameters['error_description'], $parameters['error_description'] ), 'javascript:void(0);', $type = 'error' );
 		
 		include NV_ROOTDIR . '/includes/header.php';
-		echo nv_site_theme( $contents );
+		echo nv_site_theme( $contents, false );
 		include NV_ROOTDIR . '/includes/footer.php';
 	//}
 	
@@ -107,7 +107,7 @@ if( ! $nv_Request->isset_request( 'authorized', 'post' ) )
 	$contents = nv_authorize_theme( $client_data, $user_info );
 	
 	include NV_ROOTDIR . '/includes/header.php';
-	echo nv_site_theme( $contents );
+	echo nv_site_theme( $contents, false );
 	include NV_ROOTDIR . '/includes/footer.php';
 }
 

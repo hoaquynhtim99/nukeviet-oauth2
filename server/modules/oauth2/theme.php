@@ -56,7 +56,7 @@ function nv_app_theme( $array )
  */
 function nv_info_theme( $message, $link, $type = 'info' )
 {
-	global $module_file, $lang_module, $module_info;
+	global $module_file, $lang_module, $module_info, $global_config;
 
 	$xtpl = new XTemplate( 'info.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file );
 	$xtpl->assign( 'LANG', $lang_module );
@@ -70,6 +70,27 @@ function nv_info_theme( $message, $link, $type = 'info' )
 	else
 	{
 		$xtpl->parse( 'main.info' );
+	}
+
+	$xtpl->assign( 'SITE_NAME', $global_config['site_name'] );
+	$xtpl->assign( 'THEME_SITE_HREF', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA );
+	$size = @getimagesize( NV_ROOTDIR . '/' . $global_config['site_logo'] );
+	$logo = preg_replace( '/\.[a-z]+$/i', '.svg', $global_config['site_logo'] );
+	if( ! file_exists( NV_ROOTDIR . '/' . $logo ) )
+	{
+		$logo = $global_config['site_logo'];
+	}
+	$xtpl->assign( 'LOGO_SRC', NV_BASE_SITEURL . $logo );
+	$xtpl->assign( 'LOGO_WIDTH', $size[0] );
+	$xtpl->assign( 'LOGO_HEIGHT', $size[1] );
+
+	if( isset( $size['mime'] ) and $size['mime'] == 'application/x-shockwave-flash' )
+	{
+		$xtpl->parse( 'main.swf' );
+	}
+	else
+	{
+		$xtpl->parse( 'main.image' );
 	}
 		
 	$xtpl->parse( 'main' );
@@ -85,7 +106,7 @@ function nv_info_theme( $message, $link, $type = 'info' )
  */
 function nv_authorize_theme( $client_data, $user_info )
 {
-	global $module_file, $lang_module, $module_info;
+	global $module_file, $lang_module, $module_info, $global_config;
 
 	$xtpl = new XTemplate( 'authorize.tpl', NV_ROOTDIR . '/themes/' . $module_info['template'] . '/modules/' . $module_file );
 	$xtpl->assign( 'LANG', $lang_module );
@@ -95,6 +116,27 @@ function nv_authorize_theme( $client_data, $user_info )
 	$xtpl->assign( 'ROW', $client_data );
 	$xtpl->assign( 'USERNAME', $user_info['full_name'] );
 	$xtpl->assign( 'URL_LOGOUT', NV_BASE_SITEURL . "index.php?" . NV_LANG_VARIABLE . "=" . NV_LANG_DATA . "&amp;" . NV_NAME_VARIABLE . "=users&amp;" . NV_OP_VARIABLE . '=logout' );
+
+	$xtpl->assign( 'SITE_NAME', $global_config['site_name'] );
+	$xtpl->assign( 'THEME_SITE_HREF', NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA );
+	$size = @getimagesize( NV_ROOTDIR . '/' . $global_config['site_logo'] );
+	$logo = preg_replace( '/\.[a-z]+$/i', '.svg', $global_config['site_logo'] );
+	if( ! file_exists( NV_ROOTDIR . '/' . $logo ) )
+	{
+		$logo = $global_config['site_logo'];
+	}
+	$xtpl->assign( 'LOGO_SRC', NV_BASE_SITEURL . $logo );
+	$xtpl->assign( 'LOGO_WIDTH', $size[0] );
+	$xtpl->assign( 'LOGO_HEIGHT', $size[1] );
+
+	if( isset( $size['mime'] ) and $size['mime'] == 'application/x-shockwave-flash' )
+	{
+		$xtpl->parse( 'main.swf' );
+	}
+	else
+	{
+		$xtpl->parse( 'main.image' );
+	}
 	
 	$xtpl->parse( 'main' );
 	return $xtpl->text( 'main' );

@@ -55,4 +55,5 @@ Trong đó thay http://server.oauth2.nukeviet.vn bằng tên miền tương ứn
 
 - Nếu cài đặt cho server thủ công, trong thư mục giải nén được từ file Source code, vào thư mục client, nếu cài đặt tự động cho server cần tải file Source code, giải nén để có thư mục client. Copy nội dung trong thư mục client vào web client (thư mục có file .htaccess, index.php, robots.txt).
 - Mở file `modules/users/oAuthLib/OAuth/OAuth2/Service/NukeViet.php` tìm và thay thế tất cả các giá trị `http://server.oauth2.nukeviet.vn` bằng địa chỉ tương ứng của web server.
-- Đăng nhập quản trị của web client, vào khu vực quản trị module Tài khoản -> Cấu hình module, tại "Các nhà cung cấp Oauth, OpenID được chấp nhận" tích vào `oauth oauthnkv` và ấn Lưu
+- Đăng nhập quản trị của web client, vào khu vực quản trị module Tài khoản -> Cấu hình module, tại "Các nhà cung cấp Oauth, OpenID được chấp nhận" tích vào `oauth oauthnkv` và ấn Lưu.
+- Nếu web client không sử dụng giao diện default, trong thư mục client giải nén được, đổi tên `themes/default` thành tên tương ứng với giao diện mà web client đang sử dung sau đó copy lên web client

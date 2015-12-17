@@ -35,11 +35,11 @@ Có thể lựa chọn một trong hai cách sau:
 
 Sau khi cài đặt xong module oauth2, vào phần quản trị của module, nhấp chọn Thêm APP để tạo mới một ứng dụng, copy lại giá trị Mã ứng dụng và Mã bí mật.
 Hãy đảm bảo web server đang bật rewrite, mở file .htaccess ở thư mục gốc của website. Tìm dòng
-
+```
 ##################################################################################
 #nukeviet_rewrite_start //Please do not change the contents of the following lines
 ##################################################################################
-
+```
 Thêm lên trên đoạn đó đoạn sau:
 
 ```

@@ -36,17 +36,19 @@ Có thể lựa chọn một trong hai cách sau:
 Sau khi cài đặt xong module oauth2, vào phần quản trị của module, nhấp chọn Thêm APP để tạo mới một ứng dụng, copy lại giá trị Mã ứng dụng và Mã bí mật.
 Hãy đảm bảo web server đang bật rewrite, mở file .htaccess ở thư mục gốc của website. Tìm dòng
 
+##################################################################################
+#nukeviet_rewrite_start //Please do not change the contents of the following lines
+##################################################################################
+
+Thêm lên trên đoạn đó đoạn sau:
+
 ```
+<IfModule mod_rewrite.c>
+RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
-```
-
-Thêm vào sau đó
-
-```
 RewriteRule ^oauth2/(resource|token|authorize)$ /index.php?nv=oauth2&op=$1&%{QUERY_STRING} [L]
+</IfModule>
 ```
-
-Lưu ý: File .htaccess sẽ bị thay đổi nếu như cấu hình rewrite, cấu hình loại bỏ ngôn ngữ trên url, cấu hình loại bỏ module trên url của website bị thay đổi và giá trị cấu hình của Oauth sẽ bị mất. Do đó cần thực hiện lại thao tác này mỗi khi các cấu hinh trên thay đổi.
 
 Cuối cùng truy cập đường dẫn sau http://server.oauth2.nukeviet.vn/oauth2/authorize?client_id=123456
 Trong đó thay http://server.oauth2.nukeviet.vn bằng tên miền tương ứng của web server. Nếu có thông báo `Hệ thống không tìm thấy APP đã được chỉ định` là đã thành công.

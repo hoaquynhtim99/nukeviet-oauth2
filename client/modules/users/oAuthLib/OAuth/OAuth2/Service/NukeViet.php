@@ -29,7 +29,7 @@ class NukeViet extends AbstractService
         parent::__construct($credentials, $httpClient, $storage, $scopes, $baseApiUri, false, $apiVersion);
 
         if (null === $baseApiUri) {
-            $this->baseApiUri = new Uri('http://id.kontum.my/oauth2/resource');
+            $this->baseApiUri = new Uri('http://server.oauth2.nukeviet.vn/oauth2/resource');
         }
     }
 
@@ -38,7 +38,7 @@ class NukeViet extends AbstractService
      */
     public function getAuthorizationEndpoint()
     {
-        return new Uri('http://id.kontum.my/oauth2/authorize');
+        return new Uri('http://server.oauth2.nukeviet.vn/oauth2/authorize');
     }
 
     /**
@@ -46,7 +46,7 @@ class NukeViet extends AbstractService
      */
     public function getAccessTokenEndpoint()
     {
-        return new Uri('http://id.kontum.my/oauth2/token');
+        return new Uri('http://server.oauth2.nukeviet.vn/oauth2/token');
     }
 
     /**

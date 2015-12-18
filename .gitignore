@@ -33,7 +33,7 @@
 /client/modules/users/oAuthLib/OAuth/OAuth2/*
 !/client/modules/users/oAuthLib/OAuth/OAuth2/Service/
 /client/modules/users/oAuthLib/OAuth/OAuth2/Service/*
-!/client/modules/users/oAuthLib/OAuth/OAuth2/Service/NukeViet.php
+!/client/modules/users/oAuthLib/OAuth/OAuth2/Service/Nukeviet.php
 
 #
 /client/themes/*

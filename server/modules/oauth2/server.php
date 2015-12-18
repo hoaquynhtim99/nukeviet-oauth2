@@ -10,6 +10,27 @@
 
 if( ! defined( 'NV_MOD_OAUTH2' ) ) die( 'Stop!!!' );
 
+$class_arrays = nv_scandir( NV_ROOTDIR . '/includes/class', "/^(.*?)\.class\.php$/i" );
+
+$functions = spl_autoload_functions();
+foreach( $functions as $function )
+{
+	spl_autoload_unregister( $function );
+}
+
+spl_autoload_register( function ( $classname )
+{
+	global $class_arrays;
+	
+	$classname = strtolower( $classname );
+	$class_file = $classname . '.class.php';
+	
+	if( in_array( $class_file, $class_arrays ) )
+	{
+		include NV_ROOTDIR . '/includes/class/' . $class_file;
+	}
+} );
+
 // Autoloading (composer is preferred, but for this example let's just do this)
 require_once ( NV_ROOTDIR . '/modules/' . $module_file . '/OAuth2/Autoloader.php' );
 OAuth2\Autoloader::register();

@@ -46,7 +46,7 @@ Thêm lên trên đoạn đó đoạn sau:
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^oauth2/(resource|token|authorize)$ /index.php?nv=oauth2&op=$1&%{QUERY_STRING} [L]
+RewriteRule ^oauth2/(resource|token|authorize)$ index.php?nv=oauth2&op=$1&%{QUERY_STRING} [L]
 </IfModule>
 ```
 
@@ -59,3 +59,10 @@ Trong đó thay http://server.oauth2.nukeviet.vn bằng tên miền tương ứn
 - Mở file `modules/users/oAuthLib/OAuth/OAuth2/Service/NukeViet.php` tìm và thay thế tất cả các giá trị `http://server.oauth2.nukeviet.vn` bằng địa chỉ tương ứng của web server.
 - Đăng nhập quản trị của web client, vào khu vực quản trị module Tài khoản -> Cấu hình module, tại "Các nhà cung cấp Oauth, OpenID được chấp nhận" tích vào `oauth oauthnkv` và ấn Lưu.
 - Nếu web client không sử dụng giao diện default, trong thư mục client giải nén được, đổi tên `themes/default` thành tên tương ứng với giao diện mà web client đang sử dung sau đó copy lên web client
+- Mở file `modules/users/login/oauth-oauthnkv.php` tìm đến dòng 
+
+```
+$credentials = new Credentials( '145770550207935', 'gqzwvrhc9oqqkvyzeqrk1tiph3ldqhn3', NV_MAIN_DOMAIN . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=oauth&server=oauthnkv' );
+```
+
+Thay thế `145770550207935` và `gqzwvrhc9oqqkvyzeqrk1tiph3ldqhn3` bằng hai giá trị Mã ứng dụng và Mã bí mật đã tạo ở phần Thêm APP của web server

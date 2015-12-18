@@ -34,7 +34,7 @@ $serviceFactory = new \OAuth\ServiceFactory();
 $credentials = new Credentials( '145770550207935', 'gqzwvrhc9oqqkvyzeqrk1tiph3ldqhn3', NV_MAIN_DOMAIN . NV_BASE_SITEURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name . '&' . NV_OP_VARIABLE . '=oauth&server=oauthnkv' );
 
 // Instantiate the NukeViet service using the credentials, http client and storage mechanism for the token
-$NukeVietService = $serviceFactory->createService( 'NukeViet', $credentials, $storage, array(), NULL );
+$NukeVietService = $serviceFactory->createService( 'nukeviet', $credentials, $storage, array(), NULL );
 
 // Error
 if( $nv_Request->isset_request( 'error', 'get' ) )

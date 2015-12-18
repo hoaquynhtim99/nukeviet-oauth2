@@ -10,7 +10,7 @@
 
 if( ! defined( 'NV_IS_FILE_MODULES' ) ) die( 'Stop!!!' );
 
-// RewriteRule ^oauth2/(resource|token|authorize)$ /index.php?nv=oauth2&op=$1&%{QUERY_STRING} [L]
+// RewriteRule ^oauth2/(resource|token|authorize)$ index.php?nv=oauth2&op=$1&%{QUERY_STRING} [L]
 
 global $db;
 

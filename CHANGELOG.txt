@@ -1,0 +1,7 @@
+CHANGE LOG: NUKEVIET OAUTH 2
+
+NUKEVIET OAUTH 4.0.22
+- Sửa một số lỗi trên máy chủ Linux
+
+NUKEVIET OAUTH 4.0.21
+- Oauth server và oauth client cho phép quản lý, đăng nhập bằng Oauth 2

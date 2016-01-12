@@ -59,7 +59,7 @@ if( $nv_Request->isset_request( 'delete', 'post' ) )
 	$db->query( 'DELETE FROM ' . $db_config['prefix'] . '_' . $module_data . '_public_keys WHERE client_id = ' . $db->quote( $client_id ) );
 	$db->query( 'DELETE FROM ' . $db_config['prefix'] . '_' . $module_data . '_refresh_tokens WHERE client_id = ' . $db->quote( $client_id ) );
 	
-	nv_del_moduleCache( $module_name );
+	$nv_Cache->delMod( $module_name );
 	
 	include NV_ROOTDIR . '/includes/header.php';
 	echo 'OK_' . $client_id;

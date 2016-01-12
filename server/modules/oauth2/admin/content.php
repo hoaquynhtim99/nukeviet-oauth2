@@ -111,7 +111,7 @@ if( $nv_Request->isset_request( 'submit', 'post' ) )
 						nv_insert_logs( NV_LANG_DATA, $module_name, 'Add', 'ID: ' . $array['client_id'], $admin_info['userid'] );
 					}
 	
-					nv_del_moduleCache( $module_name );
+					$nv_Cache->delMod( $module_name );
 					Header( 'Location: ' . NV_BASE_ADMINURL . 'index.php?' . NV_LANG_VARIABLE . '=' . NV_LANG_DATA . '&' . NV_NAME_VARIABLE . '=' . $module_name );
 					die();
 				}

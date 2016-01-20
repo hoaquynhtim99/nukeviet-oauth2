@@ -2,14 +2,8 @@
 
 namespace OAuth\OAuth2\Service;
 
-use OAuth\Common\Exception\Exception;
-use OAuth\OAuth2\Token\StdOAuth2Token;
 use OAuth\Common\Http\Exception\TokenResponseException;
-use OAuth\Common\Http\Uri\Uri;
-use OAuth\Common\Consumer\CredentialsInterface;
-use OAuth\Common\Http\Client\ClientInterface;
-use OAuth\Common\Storage\TokenStorageInterface;
-use OAuth\Common\Http\Uri\UriInterface;
+use OAuth\OAuth2\Token\StdOAuth2Token;
 
 class NukeViet extends AbstractService
 {
@@ -18,44 +12,10 @@ class NukeViet extends AbstractService
      */
     const SCOPE_EMAIL                         = 'email';
 
-    public function __construct(
-        CredentialsInterface $credentials,
-        ClientInterface $httpClient,
-        TokenStorageInterface $storage,
-        $scopes = array(),
-        UriInterface $baseApiUri = null,
-        $apiVersion = ""
-    ) {
-        parent::__construct($credentials, $httpClient, $storage, $scopes, $baseApiUri, false, $apiVersion);
-
-        if (null === $baseApiUri) {
-            $this->baseApiUri = new Uri('http://server.oauth2.nukeviet.vn/oauth2/resource');
-        }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAuthorizationEndpoint()
-    {
-        return new Uri('http://server.oauth2.nukeviet.vn/oauth2/authorize');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getAccessTokenEndpoint()
-    {
-        return new Uri('http://server.oauth2.nukeviet.vn/oauth2/token');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function getAuthorizationMethod()
-    {
-        return static::AUTHORIZATION_METHOD_HEADER_BEARER;
-    }
+    protected $baseApiUri = 'http://server.oauth2.nukeviet.vn/oauth2/resource';
+    protected $authorizationEndpoint = 'http://server.oauth2.nukeviet.vn/oauth2/authorize';
+    protected $accessTokenEndpoint = 'http://server.oauth2.nukeviet.vn/oauth2/token';
+    protected $authorizationMethod = self::AUTHORIZATION_METHOD_HEADER_BEARER;
 
     /**
      * {@inheritdoc}

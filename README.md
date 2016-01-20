@@ -11,4 +11,4 @@ NukeViet Oauth 2 cung cấp tiện ích đăng nhập thông qua Oauth 2 trên c
 ## Hướng dẫn cài đặt
 
 - [Cài đặt trên NukeViet 4.0.23](https://github.com/hoaquynhtim99/nukeviet-oauth2/wiki/C%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-NukeViet-4.0.23)
-- [Cài đặt trên NukeViet 4.0.24](https://github.com/hoaquynhtim99/nukeviet-oauth2/wiki/C%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-NukeViet-4.0.24)
+- [Cài đặt trên NukeViet 4.0.24, 4.0.25](https://github.com/hoaquynhtim99/nukeviet-oauth2/wiki/C%C3%A0i-%C4%91%E1%BA%B7t-tr%C3%AAn-NukeViet-4.0.24,-4.0.25)

@@ -6,6 +6,7 @@
 /client/install
 /client/uploads
 /client/.gitignore
+/client/.gitattributes
 /client/.htaccess
 /client/CONTRIBUTING.md
 /client/COPYRIGHT.txt
@@ -17,6 +18,7 @@
 /client/robots.php
 /client/robots.txt
 /client/web.config
+/client/composer.json
 
 #
 /client/modules/*
@@ -46,13 +48,29 @@
 !/client/themes/default/images/users/oauthnkv.png
 
 #
+/client/vendor/*
+!/client/vendor/and
+/client/vendor/and/*
+!/client/vendor/and/oauth
+/client/vendor/and/oauth/*
+!/client/vendor/and/oauth/src
+/client/vendor/and/oauth/src/*
+!/client/vendor/and/oauth/src/OAuth2
+/client/vendor/and/oauth/src/OAuth2/*
+!/client/vendor/and/oauth/src/OAuth2/Service
+/client/vendor/and/oauth/src/OAuth2/Service/*
+!/client/vendor/and/oauth/src/OAuth2/Service/Nukeviet.php
+
+#
 /server/admin
 /server/assets
 /server/data
 /server/includes
 /server/install
 /server/uploads
+/server/vendor
 /server/.gitignore
+/server/.gitattributes
 /server/.htaccess
 /server/CONTRIBUTING.md
 /server/COPYRIGHT.txt
@@ -64,6 +82,7 @@
 /server/robots.php
 /server/robots.txt
 /server/web.config
+/server/composer.json
 
 # 
 /server/*

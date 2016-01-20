@@ -10,20 +10,9 @@
 
 if( ! defined( 'NV_IS_MOD_USER' ) ) die( 'Stop!!!' );
 
-$functions = spl_autoload_functions();
-foreach( $functions as $function )
-{
-	spl_autoload_unregister( $function );
-}
-
-require_once NV_ROOTDIR . '/modules/users/oAuthLib/autoload.php';
-
 use OAuth\OAuth2\Service\NukeViet;
 use OAuth\Common\Storage\Session;
 use OAuth\Common\Consumer\Credentials;
-
-// Bootstrap the example
-require_once NV_ROOTDIR . '/modules/users/oAuthLib/OAuth/bootstrap.php';
 
 // Session storage
 $storage = new Session();

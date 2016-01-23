@@ -97,13 +97,6 @@ if( ! empty( $authorization ) )
 // Display an authorization form
 if( ! $nv_Request->isset_request( 'authorized', 'post' ) )
 {
-	$user_info['full_name'] = implode( ' ', array_filter( array( $user_info['last_name'], $user_info['first_name'] ) ) );
-	
-	if( empty( $user_info['full_name'] ) )
-	{
-		$user_info['full_name'] = $user_info['username'];
-	}
-	
 	$contents = nv_authorize_theme( $client_data, $user_info );
 	
 	include NV_ROOTDIR . '/includes/header.php';
